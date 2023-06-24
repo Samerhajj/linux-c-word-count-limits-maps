@@ -1,0 +1,554 @@
+{
+  "tests": [
+    {
+      "name": "make all",
+      "setup": "",
+      "run": "make all",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "make clean",
+      "setup": "make all",
+      "run": "make clean",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "make words",
+      "setup": "",
+      "run": "make words",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "make map",
+      "setup": "",
+      "run": "make map",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "make limits",
+      "setup": "",
+      "run": "make limits",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 count",
+      "setup": "make words",
+      "run": "./words -c tests/words1.txt",
+      "input": "",
+      "output": "The total number of words is: 6",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "words2 count",
+      "setup": "make words",
+      "run": "./words -c tests/words2.txt",
+      "input": "",
+      "output": "The total number of words is: 88",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 words2 count",
+      "setup": "",
+      "run": "./words -c tests/words1.txt tests/words2.txt",
+      "input": "",
+      "output": "The total number of words is: 94",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words2 words1 count",
+      "setup": "make words",
+      "run": "./words -c tests/words2.txt tests/words1.txt",
+      "input": "",
+      "output": "The total number of words is: 94",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words help",
+      "setup": "make words",
+      "run": "./words -h",
+      "input": "",
+      "output": "Flags:",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "count stdin",
+      "setup": "make words",
+      "run": "./words -c",
+      "input": "Hello world! I like cats",
+      "output": "The total number of words is: 5",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 freq",
+      "setup": "make words",
+      "run": "./words -f tests/words1.txt | sha256sum",
+      "input": "",
+      "output": "31a1b86b3b1d9691436396b550cff8510638a6c50d3ae960779b14728afe230e",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words2 freq",
+      "setup": "make words",
+      "run": "./words -f tests/words2.txt | sha256sum",
+      "input": "",
+      "output": "354ef51b9e45923e2afc5b48427a1734101dab992fdf4514a6538330fe99f081",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 words2 freq",
+      "setup": "make words",
+      "run": "./words -f tests/words1.txt tests/words2.txt | sha256sum",
+      "input": "\r\n",
+      "output": "05e75abf1dcec14fe37b35e9779206edb85389b802f976c900a4abfda31e9e9f",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency",
+      "setup": "make words",
+      "run": "./words -f tests/dr-jekyll-mr-hyde.txt | sha256sum",
+      "input": "",
+      "output": "25e92070a948507f05eea5de2bfa897da3f0ec8de0c2ef64efd57880beba5384",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "jekyll hyde count",
+      "setup": "make words",
+      "run": "./words -c tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "The total number of words is: 28623",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse",
+      "setup": "make words",
+      "run": "./words -r tests/dr-jekyll-mr-hyde.txt | sha256sum",
+      "input": "",
+      "output": "7c216f39a75fa143014afca75102ee64890ded0ca9513f2ee1428373dad208de",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "pride count",
+      "setup": "make words",
+      "run": "./words -c tests/pride-prejudice.txt ",
+      "input": "",
+      "output": "The total number of words is: 124707",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "pride frequency",
+      "setup": "make words",
+      "run": "./words -f tests/pride-prejudice.txt | sha256sum",
+      "input": "",
+      "output": "f54a83ec052dc15389bd9eb9caaaa48f23aeb0e9a3f14cf5543f9bea61a1c655",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "pride reverse",
+      "setup": "make words",
+      "run": "./words -r tests/pride-prejudice.txt | sha256sum",
+      "input": "",
+      "output": "d00b01a0b17c7de29ed9ab498fc16726ee8adfe3242d30210c3ef1809b60df3b",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "words1 reverse",
+      "setup": "make words",
+      "run": "./words -r tests/words1.txt | sha256sum",
+      "input": "",
+      "output": "25f548ecac22e3e39931b3a149782d3841a8c1ffc73756e1fceaa91025811715",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words2 reverse",
+      "setup": "make words",
+      "run": "./words -r tests/words2.txt | sha256sum",
+      "input": "",
+      "output": "58d7b975ebb94c081c3b6ce2bc08b761f808fdd111cdc6132c16ba4538749327",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 words2 reverse",
+      "setup": "make words",
+      "run": "./words -r tests/words1.txt tests/words2.txt | sha256sum",
+      "input": "",
+      "output": "2a8cd889bfd98cd168260f5e42be6acf59663dda82ad085a7f7123930e1bc43f",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "map stack",
+      "setup": "make map",
+      "run": "./map",
+      "input": "",
+      "output": "_main stack: 0x7",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "map foo",
+      "setup": "make map",
+      "run": "./map",
+      "input": "",
+      "output": "static data foo: 0x",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "map bar",
+      "setup": "make map",
+      "run": "./map",
+      "input": "",
+      "output": "static data bar: 0x",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "limits",
+      "setup": "make limits",
+      "run": "./limits",
+      "input": "",
+      "output": "Maximum Stack Size: 16777216",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words help c",
+      "setup": "make words",
+      "run": "./words -h",
+      "input": "",
+      "output": "-c: Count the total amount of words in the file, or STDIN if a file is not specified.\r\n",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words help f",
+      "setup": "make words",
+      "run": "./words -h",
+      "input": "",
+      "output": "-f: Count the frequency of each word in the file, or STDIN if a file is not specified.  Display words sorted by count (ascending), then alphabetically (A->Z)",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words help r",
+      "setup": "make words",
+      "run": "./words -h",
+      "input": "",
+      "output": "-r: Count the frequency of each word in the file, or STDIN if a file is not specified.  Display words sorted by count (descending), then reverse alphabetically (Z->A)",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words help h",
+      "setup": "make words",
+      "run": "./words -h",
+      "input": "",
+      "output": "-h: Displays this help message",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 count STDIN",
+      "setup": "make words",
+      "run": "./words -c < tests/words1.txt",
+      "input": "",
+      "output": "The total number of words is: 6",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "word2 count STDIN",
+      "setup": "make words",
+      "run": "./words -c < tests/words2.txt",
+      "input": "",
+      "output": "The total number of words is: 88",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "pride count STDIN",
+      "setup": "make words",
+      "run": "./words -c < tests/pride-prejudice.txt",
+      "input": "",
+      "output": "The total number of words is: 124707",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde count STDIN",
+      "setup": "make words",
+      "run": "./words -c < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "The total number of words is: 28623",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words1 frequency STDIN",
+      "setup": "make words",
+      "run": "./words -f < tests/words1.txt  | sha256sum",
+      "input": "",
+      "output": "31a1b86b3b1d9691436396b550cff8510638a6c50d3ae960779b14728afe230e",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words2 frequency STDIN",
+      "setup": "make words",
+      "run": "./words -f < tests/words2.txt  | sha256sum",
+      "input": "",
+      "output": "354ef51b9e45923e2afc5b48427a1734101dab992fdf4514a6538330fe99f081",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "pride frequency STDIN",
+      "setup": "make words",
+      "run": "./words -f < tests/pride-prejudice.txt  | sha256sum",
+      "input": "",
+      "output": "f54a83ec052dc15389bd9eb9caaaa48f23aeb0e9a3f14cf5543f9bea61a1c655",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "jekyll hyde frequency STDIN",
+      "setup": "make words",
+      "run": "./words -f < tests/dr-jekyll-mr-hyde.txt  | sha256sum",
+      "input": "",
+      "output": "25e92070a948507f05eea5de2bfa897da3f0ec8de0c2ef64efd57880beba5384",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "words1 reverse STDIN",
+      "setup": "make words",
+      "run": "./words -r < tests/words1.txt  | sha256sum",
+      "input": "",
+      "output": "25f548ecac22e3e39931b3a149782d3841a8c1ffc73756e1fceaa91025811715",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "words2 reverse STDIN",
+      "setup": "make words",
+      "run": "./words -r < tests/words2.txt  | sha256sum",
+      "input": "",
+      "output": "58d7b975ebb94c081c3b6ce2bc08b761f808fdd111cdc6132c16ba4538749327",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "pride reverse STDIN",
+      "setup": "make words",
+      "run": "./words -r < tests/pride-prejudice.txt  | sha256sum",
+      "input": "",
+      "output": "d00b01a0b17c7de29ed9ab498fc16726ee8adfe3242d30210c3ef1809b60df3b",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "jeykll hyde reverse STDIN",
+      "setup": "make words",
+      "run": "./words -r < tests/dr-jekyll-mr-hyde.txt  | sha256sum",
+      "input": "",
+      "output": "7c216f39a75fa143014afca75102ee64890ded0ca9513f2ee1428373dad208de",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 0
+    },
+    {
+      "name": "jekyll hyde frequency (project)",
+      "setup": "make words",
+      "run": "./words -f tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "87\\s*project",
+      "comparison": "regex",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency (know)",
+      "setup": "make words",
+      "run": "./words -f tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "44\\s*know",
+      "comparison": "regex",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency (was)",
+      "setup": "make words",
+      "run": "./words -f tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "469\\s*was",
+      "comparison": "regex",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse (project)",
+      "setup": "make words",
+      "run": "./words -r tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "87\\s*project",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse (know)",
+      "setup": "make words",
+      "run": "./words -r tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "44\\s*know",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse (was)",
+      "setup": "make words",
+      "run": "./words -r tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "469\\s*was",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency STDIN (project)",
+      "setup": "make words",
+      "run": "./words -f < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "87\\s*project",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency STDIN (know)",
+      "setup": "make words",
+      "run": "./words -f < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "44\\s*know",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde frequency STDIN (was)",
+      "setup": "make words",
+      "run": "./words -f < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "469\\s*words",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse STDIN (project)",
+      "setup": "make words",
+      "run": "./words -r < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "87\\s*project",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse STDIN (know)",
+      "setup": "make words",
+      "run": "./words -r < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "44\\s*know",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    },
+    {
+      "name": "jekyll hyde reverse STDIN (was)",
+      "setup": "make words",
+      "run": "./words -r < tests/dr-jekyll-mr-hyde.txt",
+      "input": "",
+      "output": "469\\s*was",
+      "comparison": "regex",
+      "timeout": 2,
+      "points": 2
+    }
+  ]
+}

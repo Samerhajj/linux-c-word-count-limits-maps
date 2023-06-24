@@ -1,0 +1,24 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: make
+    - name: Run autograder
+      run: |
+        # Replace the command below with the appropriate command to run your tests
+        # Example: ./run_tests.sh
+        # Example: pytest tests/
+        cat .github/workflows/autograder.json | jq -r '.tests[].run' | xargs -I {} sh -c '{}'
