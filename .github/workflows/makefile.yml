@@ -16,3 +16,9 @@ jobs:
 
     - name: Install dependencies
       run: make
+    - name: Run autograder
+      run: |
+        # Replace the command below with the appropriate command to run your tests
+        # Example: ./run_tests.sh
+        # Example: pytest tests/
+        cat autograder.json | jq -r '.tests[].run' | xargs -I {} sh -c '{}'
