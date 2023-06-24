@@ -24,9 +24,50 @@ The word count program in this repository (`word_count.c`) counts the number of 
 
 To compile and run the word count program, use the following commands:
 ```shell
-gcc -o word_count word_count.c
-./word_count <file_path>
+make words
+./words [options] [file1] [file2]
 ```
+Replace [file1], [file2], etc. with the path(s) to the input file(s) you want to process. If no file is specified, the program will read from standard input.
+### Options
+
+The program supports the following options:
+
+- `-c`: Count Mode  
+  Counts the total number of words in the file(s) and displays the count.
+
+- `-f`: Frequency Mode  
+  Counts the frequency of each word in the file(s) and displays the words sorted by count (ascending), then alphabetically.
+
+- `-r`: Reverse Mode  
+  Counts the frequency of each word in the file(s) and displays the words sorted by count (descending), then reverse alphabetically.
+
+- `-h`: Help  
+  Displays the help message with usage instructions.
+
+### Examples
+1. Count the total number of words in a file:
+```shell
+./words -c myfile.txt
+```
+
+2. Count the frequency of each word in multiple files and display the results sorted by count, then alphabetically:
+```shell
+./words -f file1.txt file2.txt file3.txt
+```
+
+3. Count the frequency of each word in a file and display the results sorted by count in descending order, then reverse alphabetically:
+```shell
+./words -r myfile.txt
+```
+
+4. Display the help message:
+```shell
+./words -h
+```
+
+Note: If no file is specified, the program will read from STDIN.
+
+
 
 ## Limits Program
 The limits program (`limits.c`) displays various system limits such as maximum file size, maximum number of open files, and more. The program retrieves these limits using the appropriate system functions and displays them on the console.

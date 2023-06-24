@@ -1,7 +1,6 @@
 /*
 
   Word Count using dedicated lists,
-  modified for Kinneret College on the Sea of Galile
 
 */
 
