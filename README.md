@@ -15,7 +15,7 @@ The program also includes recursive function calls and prints the addresses of v
 To run the map program, execute the following command:
 
 ```shell
-gcc -o map map.c
+make map
 ./map
 ```
 
@@ -74,6 +74,6 @@ The limits program (`limits.c`) displays various system limits such as maximum f
 
 To compile and run the limits program, use the following commands:
 ```shell
-gcc -o limits limits.c
+make limits
 ./limits
 ```
